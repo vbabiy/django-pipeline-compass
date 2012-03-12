@@ -7,7 +7,7 @@ django-pipeline compiler for scss and with compass. Does not require the ruby ge
 
 setup(
     name='django-pipeline-compass',
-    version='1.0',
+    version='0.1.0',
     description=description,
     long_description=description,
     author='Vitaly',
@@ -15,6 +15,7 @@ setup(
     url='https://github.com/vbabiy/django-pipeline-compass',
     packages=find_packages(),
     zip_safe=False,
+    install_requires=['pyScss'],
     include_package_data=True,
     classifiers=[
         'Environment :: Web Environment',
