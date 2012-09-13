@@ -18,5 +18,5 @@ class CompassCompiler(CompilerBase):
   def match_file(self, filename):
     return filename.endswith('.scss')
 
-  def compile_file(self, content, path):
+  def compile_file(self, content, path, **kwargs):
     return scss.Scss().compile(content)
