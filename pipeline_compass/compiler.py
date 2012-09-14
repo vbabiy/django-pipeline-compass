@@ -1,4 +1,8 @@
 from pipeline.compilers import CompilerBase
+from django.core.files.base import ContentFile
+from django.utils.encoding import smart_str
+
+
 import scss
 import os
 
@@ -18,5 +22,10 @@ class CompassCompiler(CompilerBase):
   def match_file(self, filename):
     return filename.endswith('.scss')
 
-  def compile_file(self, content, path, **kwargs):
-    return scss.Scss().compile(content)
+  def compile_file(self, content, path, force=False, outdated=False):
+    if force or outdated:
+        self.save_file(path, scss.Scss().compile(None, content))
+
+  def save_file(self, path, content):
+    return open(path, 'w').write(smart_str(content))
+
