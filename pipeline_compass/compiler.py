@@ -15,7 +15,7 @@ class CompassCompiler(CompilerBase):
   output_extension = 'css'
 
   def match_file(self, filename):
-    return filename.endswith('.scss')
+    return filename.endswith(('.scss', '.sass'))
 
   def compile_file(self, content, path, force=False, outdated=False):
     add_to_scss_path(os.path.dirname(path)) # add the current path of the parsed file to enable the local @import
