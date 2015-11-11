@@ -34,11 +34,11 @@ class CompassCompiler(CompilerBase):
         return open(path, 'w').write(smart_str(content))
 
 # setup scss load path
-scss.config.STATIC_ROOT = settings.STATIC_ROOT
+scss.config.STATIC_ROOT = settings.STATIC_MEDIA
 if (hasattr(settings, 'SCSS_STATIC_ROOT')):
-  scss.config.ASSETS_ROOT = settings.SCSS_STATIC_ROOT
   if not os.path.exists(settings.SCSS_STATIC_ROOT):
     os.makedirs(settings.SCSS_STATIC_ROOT)
+  scss.config.ASSETS_ROOT = settings.SCSS_STATIC_ROOT
 
 scss.config.STATIC_URL = settings.STATIC_URL
 scss.config.ASSETS_URL = settings.STATIC_URL
